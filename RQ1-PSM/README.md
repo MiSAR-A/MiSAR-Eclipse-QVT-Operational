@@ -19,4 +19,4 @@ PSM Concept | PSM Attribute(s) | Description
 Represents *microservice-level* project artefacts.  `MicroserviceProjectArtifactsModel` element is composed of many elements that model different types of system project artefacts and their content as explained in the following:
 
 PSM Concept | PSM Attribute | Description
------------- | -------------
+------------ | ------------- | -------------
