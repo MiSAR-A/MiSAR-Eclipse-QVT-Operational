@@ -34,3 +34,7 @@ PSM Concept | PSM Attribute(s) | Description
 `JavaAnnotationParameter` | `ParameterName`, `ParameterValue` | 
 `JavaDataType` | `IsPrimitive`, `JsonSchema`, `PackageName`  |  `JavaDataType` is either primitive (e.g. int, float, char or Boolean) or `JavaUserDefinedType` which, in turn, can be a `JavaInterfaceType` or a `JavaClassType`. A `JavaDataType` is defined by `JsonSchema`, i.e. JSON representation of type definition, and `PackageName` and it represents the type of any `JavaField` element. 
 `JavaUserDefinedType` | | this element may extend and/or import other `JavaUserDefinedType` elements and it contains one or many `JavaMethods`. It is also the parent of any `JavaMethod` element. 
+`JavaClassType` | | A `JavaClassType` can implement a `JavaInterfaceType`and it may contain local `JavaField`s in addition to `JavaMethod`s. 
+`JavaInterfaceType` | | 
+`JavaMethod` | | A `JavaMethod` may take instances of `JavaField` as input parameters in its signature and/or as local fields in its body. It may return at most one instance of `JavaDataType` and invoke other `JavaMethod`s. 
+`JavaField` | `FieldValue` | 
