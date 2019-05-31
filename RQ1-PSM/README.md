@@ -1,5 +1,13 @@
 # RQ1: PSM Metamodel
 
+<br/>
+
+PSM metamodel diagram is provided below:
+
+<img src="https://github.com/MiSAR-A/Journal-Results/blob/master/RQ1-PSM/images/PSM.png" />
+
+<br/>
+
 Source artifacts of each microservice architecture projects used in our study were packaged and uploaded into one GitHub repository. Artefacts contained in each repository can be classified into two main elements:
 
 ## 1. SystemProjectArtifactsModel
