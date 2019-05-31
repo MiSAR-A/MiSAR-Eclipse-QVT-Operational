@@ -1,1 +1,1 @@
-Images for [RQ1-PSM](https://github.com/MiSAR-A/Journal-Results/new/master/RQ1-PSM) page.
+Images for [RQ1-PSM](/Journal-Results/RQ1-PSM) page.
