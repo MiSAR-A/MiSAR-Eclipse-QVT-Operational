@@ -10,7 +10,7 @@ In this regard, this paper aims at providing an approach that would help to enha
 
 ## Introduction
 
-<img src="https://github.com/MiSAR-A/Journal-Results/blob/master/images/image.png" alt="Kitten" title="Misar" width="550" />
+<img src="https://github.com/MiSAR-A/Journal-Results/blob/master/images/image.png" alt="Kitten" title="Misar" width="600" />
 
 **MiSAR** is an approach for recovering the architecture of microservice systems. **MiSAR** has been designed to follow the [Model Driven Engineering](https://ict.eu/model-driven-engineering/). The main elements of **MiSAR** includes three different abstraction levels defined as `L0`, `L1` and `L2`. As described in the above Figure, `L0` level includes the microservice software system in the real world as a set of physical artifacts. It currently includes the source code files, configuration files, Docker files, Docker compose file, build file and project build file. Further, the `L1` level (also abbreviated as `PSM model`) can represent the software artifacts of different models at `L0`. `PSM` consists of artifacts that has more than one model according to specific metamodels which show six models at `PSM` level, each conforming to their own meta-model, respectively. E.x Source code model as described by the Java metamodel for Java file and Container build model as described by the Containerization build metamodel for Docker file. 
 
