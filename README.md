@@ -1,6 +1,4 @@
-This repository includes the QVT-Eclipse project for `MiSAR` model-based architecture recovery. Along with explanations and illustrations for the theory behind it.  
-
-The content of this repo is orgnized as the following:
+This repository includes the `QVT-Eclipse` project for `MiSAR` model-based architecture recovery. Along with explanations and illustrations for the theory behind it.  
 
 Folder Name | Description 
 ----------- | -----------
