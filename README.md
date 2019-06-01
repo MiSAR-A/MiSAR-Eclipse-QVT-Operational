@@ -1,6 +1,10 @@
 # Refining The Micro Service Architecture Recovery Approach: An Empirical Study
 
+<br/><br/>
+
 This repository includes the `Eclipse QVT Operational` project for `MiSAR` model-based architecture recovery. Along with explanations and illustrations for the theory behind it.  
+
+<br/><br/>
 
 Folder Name | Description 
 ----------- | -----------
@@ -8,6 +12,8 @@ Folder Name | Description
 [RQ2-PIM](https://github.com/MiSAR-A/MiSAR-A-QVT/tree/master/RQ2-PIM) | Theory and Implementation of PIM model 
 [RQ3-MAPPING](https://github.com/MiSAR-A/MiSAR-A-QVT/tree/master/RQ3-MAPPING) | Theory and Implementation of PSM-to-PIM Mapping Rules
 [RQ4-RECOVERY](https://github.com/MiSAR-A/MiSAR-A-QVT/tree/master/RQ4-RECOVERY) | Theory and Implementation of Transformation using `Eclipse QVT Operational`
+
+<br/><br/>
 
 ## Abstract
 
