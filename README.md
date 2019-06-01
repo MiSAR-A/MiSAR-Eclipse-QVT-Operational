@@ -1,4 +1,4 @@
-This repository includes the QVT implementation details for `MiSAR` model-based architecture recovery project in addition to explanations and illustrations for the theory behind it.  
+This repository includes the QVT project for `MiSAR` model-based architecture recovery along with explanations and illustrations for the theory behind it.  
 
 # Refining The Micro Service Architecture Recovery Approach: An Empirical Study
 
