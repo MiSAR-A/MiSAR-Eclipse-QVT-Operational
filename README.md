@@ -29,6 +29,8 @@ In this regard, this paper aims at providing an approach that would help to enha
 
 MiSAR in the form of high-level conceptual view. (click on the image to view it in full size)
 
+<br/>
+
 <img src="https://github.com/MiSAR-A/Journal-Results/blob/master/images/image.png" alt="Kitten" title="Misar" width="600" />
 
 <br/>
