@@ -13,13 +13,15 @@ Folder Name | Description
 [RQ3-MAPPING](https://github.com/MiSAR-A/MiSAR-A-QVT/tree/master/RQ3-MAPPING) | Theory and Implementation of PSM-to-PIM Mapping Rules
 [RQ4-RECOVERY](https://github.com/MiSAR-A/MiSAR-A-QVT/tree/master/RQ4-RECOVERY) | Theory and Implementation of Transformation using `Eclipse QVT Operational`
 
-<br/><br/>
+<br/>
 
 ## Abstract
 
 [Micro Service Architecture](https://microservices.io/) is considered as a well-known architectural style in the current era. It assesses each system as a collection of tiny components that may incorporate one or more modules. In the highly dynamic enterprise domain, micro services are developed quickly to achieve a fast time-to-market, and new features have to be introduced regularly in order to stay competitive. However, the practice shows that the software architects are often facing the challenge of not knowing carefully the real software architecture of the system they architect and there is  a chasm between the conceptual software architecture in the minds of the architects and the concrete architecture that is found in the micro-services orchestration and implementation.
 
 In this regard, this paper aims at providing an approach that would help to enhance the architecture recovery of a microservice software system that can expose the architectural aspects perceived as crucial for the developers. **MiSAR** is an architecture recovery approach based on the main concepts of the model-driven paradigm. In this paper, an empirical study is conducted with the aim of validating the capability of **MiSAR** artefacts in recovering the architecture of 8 microservice systems. The study resulted in a refinement of **MiSAR** existing artefacts: the meta-model, mapping rules. 
+
+<br/>
 
 ## Introduction
 
