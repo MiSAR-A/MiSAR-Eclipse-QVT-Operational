@@ -1,10 +1,10 @@
 # Refining The Micro Service Architecture Recovery Approach: An Empirical Study
 
-<br/><br/>
+<br/>
 
 This repository includes the `Eclipse QVT Operational` project for `MiSAR` model-based architecture recovery. Along with explanations and illustrations for the theory behind it.  
 
-<br/><br/>
+<br/>
 
 Folder Name | Description 
 ----------- | -----------
