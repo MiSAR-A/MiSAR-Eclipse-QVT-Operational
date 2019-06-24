@@ -8,6 +8,10 @@ PSM metamodel diagram is provided below (click on the image to view it in full s
 
 <br/>
 
+*ECORE* implementation of the above PSM model is provided in `PSM.ecore` file.
+
+<br/>
+
 Source artifacts of each microservice architecture projects used in our study were packaged and uploaded into one GitHub repository. Artefacts contained in each repository can be classified into two main elements:
 
 ## 1. SystemProjectArtifactsModel
@@ -47,6 +51,3 @@ PSM Concept | PSM Attribute(s) | Description
 `JavaMethod` | | A `JavaMethod` may take instances of `JavaField` as input parameters in its signature and/or as local fields in its body. It may return at most one instance of `JavaDataType` and invoke other `JavaMethod`s. 
 `JavaField` | `FieldValue` | 
 
-<br/>
-
-*ECORE* implementation of the above PSM model is provided in `PSM.ecore` file.
