@@ -8,7 +8,7 @@ PSM metamodel diagram is provided below (click on the image to view it in full s
 
 <br/>
 
-*ECORE* implementation of the above PSM model is provided in `PSM.ecore` file.
+*ECORE* implementation of the above PSM model is provided in `model/PSM.ecore` file.
 
 <br/>
 
