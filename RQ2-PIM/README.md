@@ -8,6 +8,8 @@ PIM metamodel diagram is provided below (click on the image to view it in full s
 
 <br/>
 
+*ECORE* implementation of the above PIM model is provided in `model/PIM.ecore` file.
+
 As a result of our empirical study, we introduce our updated version of **MISAR** microservice architecture metamodel as shown in the above Figure. The new version aimed to be generic, extendible and more comprehensive in order to model almost any microservice architecture built in any platform or technology.  In regard to RQ2, this metamodel is supposed to comprehensively model microservices along with service pattern components implemented in them including server components and client components. Our enhanced metamodel is intended to provide a way to define microservice architecture from static structure and dynamic interaction points of view. Explanation of updated concepts in the result model is provided as the following:
 
 PSM Concept | PSM Attribute(s) | Description
