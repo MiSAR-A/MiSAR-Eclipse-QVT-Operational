@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PIM" nsURI="http://localhost/mdd/PIM.ecore" nsPrefix="PIM">
+  <eClassifiers xsi:type="ecore:EClass" name="ArchitectureElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Environment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GeneratingPSM" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootPIM">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//MicroservicesArchitectureModel"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MicroservicesArchitectureModel" eSuperTypes="#//ArchitectureElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ArchitectureName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containers" lowerBound="1"
+        upperBound="-1" eType="#//Container" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ambient" eSuperTypes="#//ArchitectureElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Container" eSuperTypes="#//Ambient">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ContainerName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="microservice" lowerBound="1"
+        eType="#//Microservice" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Microservice" eSuperTypes="#//ArchitectureElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ServiceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//ServicePatternComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" lowerBound="1"
+        eType="#//ServiceInterface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interactions" upperBound="-1"
+        eType="#//ServiceDependency" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionalMicroservice" eSuperTypes="#//Microservice"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InfrastructureMicroservice" eSuperTypes="#//Microservice"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServicePatternComponent" eSuperTypes="#//ArchitectureElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PatternCategory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ComponentRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServerComponent" eSuperTypes="#//ServicePatternComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ClientComponent" eSuperTypes="#//ServicePatternComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceInterface" eSuperTypes="#//ArchitectureElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destinations" lowerBound="1"
+        upperBound="-1" eType="#//ServiceDestination" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceDestination" eSuperTypes="#//ArchitectureElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//ServiceOperation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messages" lowerBound="1"
+        upperBound="-1" eType="#//ServiceMessage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SynchronousServiceDestination" eSuperTypes="#//ServiceDestination"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RestEndpoint" eSuperTypes="#//SynchronousServiceDestination">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HttpMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AsynchronousServiceDestination" eSuperTypes="#//ServiceDestination"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AmqpExchange" eSuperTypes="#//AsynchronousServiceDestination">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExchangeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExchangeType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RoutingKeys" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AmqpQueue" eSuperTypes="#//AsynchronousServiceDestination">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QueueName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InboundQueue" eSuperTypes="#//AmqpQueue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutboundQueue" eSuperTypes="#//AmqpQueue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceOperation" eSuperTypes="#//ArchitectureElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OperationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceMessage" eSuperTypes="#//ArchitectureElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MessageType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BodySchema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SchemaFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceDependency">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" lowerBound="1"
+        eType="#//Microservice" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destination" lowerBound="1"
+        eType="#//ServiceDestination" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
