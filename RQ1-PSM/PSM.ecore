@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="PSM" nsURI="http://localhost/mdd/PSM.ecore" nsPrefix="PSM">
+  <eClassifiers xsi:type="ecore:EClass" name="ArtifactElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParentProjectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ArtifactFileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GeneratingLinesOfCode"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootPSM">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system" lowerBound="1"
+        eType="#//SystemProjectArtifactsModel" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemProjectArtifactsModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SystemProjectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ArtifactsRepositoryURI"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="docker" lowerBound="1"
+        eType="#//DockerComposeFile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="build" lowerBound="1" eType="#//SystemProjectBuildFile"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemProjectArtifactFile" eSuperTypes="#//ArtifactElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DockerComposeFile" eSuperTypes="#//SystemProjectArtifactFile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containers" lowerBound="1"
+        upperBound="-1" eType="#//ContainerDefinition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainerDefinition" eSuperTypes="#//ArtifactElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ServiceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ImageField" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BuildField" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LoggingField" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VolumesLogField" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="depends" upperBound="-1"
+        eType="#//ContainerDependency" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//ModuleProjectArtifactsModel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainerDependency" eSuperTypes="#//ArtifactElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" lowerBound="1"
+        eType="#//ContainerDefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DependencyOrder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleDockerFile" eSuperTypes="#//ModuleProjectArtifactFile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CommandFROM" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CommandRUN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemProjectBuildFile" eSuperTypes="#//SystemProjectArtifactFile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" lowerBound="1"
+        upperBound="-1" eType="#//ModuleProjectArtifactsModel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ProjectArtifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleProjectArtifactsModel" eSuperTypes="#//ArtifactElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ModuleProjectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="docker" eType="#//ModuleDockerFile"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="build" lowerBound="1" eType="#//ModuleProjectBuildFile"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="config" lowerBound="1"
+        eType="#//ModuleProjectConfigurationsFile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sources" lowerBound="1"
+        upperBound="-1" eType="#//JavaSourceFile" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleProjectArtifactFile" eSuperTypes="#//ArtifactElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleProjectBuildFile" eSuperTypes="#//ModuleProjectArtifactFile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ProjectParentArtifactId"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" lowerBound="1"
+        upperBound="-1" eType="#//DependencyLibrary" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DependencyLibrary" eSuperTypes="#//ArtifactElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LibraryGroupName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LibraryName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LibraryScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleProjectConfigurationsFile" eSuperTypes="#//ModuleProjectArtifactFile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" lowerBound="1"
+        upperBound="-1" eType="#//ConfigurationProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationProperty" eSuperTypes="#//ArtifactElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FullyQualifiedPropertyName"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PropertyValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConfigurationProfile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="global"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaSourceFile" eSuperTypes="#//ModuleProjectArtifactFile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
+        upperBound="-1" eType="#//JavaElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaElement" eSuperTypes="#//ArtifactElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ElementIdentifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="-1"
+        eType="#//JavaAnnotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaAnnotation" eSuperTypes="#//ArtifactElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AnnotationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//JavaAnnotationParameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaAnnotationParameter" eSuperTypes="#//ArtifactElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParameterName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="value"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParameterValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaDataType" eSuperTypes="#//JavaElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JsonSchema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PackageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="java.lang"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaUserDefinedType" eSuperTypes="#//JavaDataType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methods" lowerBound="1"
+        upperBound="-1" eType="#//JavaMethod" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//JavaUserDefinedType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//JavaUserDefinedType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaClassType" eSuperTypes="#//JavaUserDefinedType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+        eType="#//JavaField" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implements" eType="#//JavaInterfaceType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaInterfaceType" eSuperTypes="#//JavaUserDefinedType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaMethod" eSuperTypes="#//JavaElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+        eType="#//JavaUserDefinedType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//JavaField" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+        eType="#//JavaField" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returns" eType="#//JavaDataType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invokes" upperBound="-1"
+        eType="#//JavaMethod" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaField" eSuperTypes="#//JavaElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FieldValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="NA"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//JavaDataType"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
