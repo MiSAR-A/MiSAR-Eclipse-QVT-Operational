@@ -10,8 +10,6 @@ PSM metamodel diagram is provided below (click on the image to view it in full s
 
 *ECORE* implementation of the above PSM model is provided in `model/PSM.ecore` file.
 
-<br/>
-
 Source artifacts of each microservice architecture projects used in our study were packaged and uploaded into one GitHub repository. Artefacts contained in each repository can be classified into two main elements:
 
 ## 1. SystemProjectArtifactsModel
