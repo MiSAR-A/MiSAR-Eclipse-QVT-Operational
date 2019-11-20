@@ -4,7 +4,9 @@
 
 PSM metamodel diagram is provided below (click on the image to view it in full size)
 
-<img src="https://github.com/MiSAR-A/Journal-Results/blob/master/RQ1-PSM/images/PSM.png" />
+<img src="https://imgur.com/1FHQ2zT" />
+<img src="https://imgur.com/FTBIimr" />
+
 
 <br/>
 
