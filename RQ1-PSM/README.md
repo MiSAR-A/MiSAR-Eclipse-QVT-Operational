@@ -4,7 +4,7 @@
 
 PSM metamodel diagram is provided below (click on the image to view it in full size)
 
-<img src="https://imgur.com/1FHQ2zT" />
+<<blockquote class="imgur-embed-pub" lang="en" data-id="1FHQ2zT"><a href="https://imgur.com/1FHQ2zT">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>" />
 <img src="https://imgur.com/FTBIimr" />
 
 
